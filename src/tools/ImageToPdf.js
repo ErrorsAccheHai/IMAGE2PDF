@@ -263,7 +263,9 @@ export default class ImageToPdf extends React.Component {
   };
 
   handleEditDim = (field, val) => {
-    const { editLock, editW, editH, editUnit, images, editingId } = this.state;
+    const { editLock, editUnit, images, editingId } = this.state;
+    const _editW = this.state.editW; // eslint-disable-line no-unused-vars
+    const _editH = this.state.editH; // eslint-disable-line no-unused-vars
     const img = images.find(i => i.id === editingId);
     const ratio = img && img.naturalH ? img.naturalW / img.naturalH : 1;
     const numVal = parseFloat(val);
@@ -285,7 +287,8 @@ export default class ImageToPdf extends React.Component {
     const { images, pageSize, pageMargin, pageOrientation, compressImages, imageQuality,
       forceShowOption, busy, busyProgress, dragOverId, canvasDragOver, dropzoneActive,
       fileName, formatError, resizeEnabled, resizeUnit, resizeWidth, resizeHeight, resizeLock,
-      targetSizeIdx, editingId, editW, editH, editUnit, editLock } = this.state;
+      targetSizeIdx, editingId } = this.state;
+    const { editW, editH, editUnit, editLock } = this.state;
 
     const previewH = 180;
     const previewW = Math.ceil(previewH * (pageSize !== Fit ? this.getAspectRatio() : 0.75));

@@ -15,6 +15,7 @@ import PdfToImages    from './tools/PdfToImages';
 import ImageConverter from './tools/ImageConverter';
 import CompressImages from './tools/CompressImages';
 import CompressPdf    from './tools/CompressPdf';
+import ResizeExport   from './tools/ResizeExport';
 
 const TOOLS = [
   { id: 'image-to-pdf',    label: 'Image to PDF',    icon: 'image',    desc: 'Convert JPG, PNG, WebP images into a PDF document',       group: 'PDF Tools',   color: '#FF3D77', component: ImageToPdf },
@@ -24,8 +25,9 @@ const TOOLS = [
   { id: 'watermark-pdf',   label: 'Watermark PDF',    icon: 'watermark',desc: 'Add watermark text or page numbers to your PDF',          group: 'PDF Tools',   color: '#34C759', component: WatermarkPdf },
   { id: 'compress-pdf',    label: 'Compress PDF',     icon: 'compress', desc: 'Reduce PDF file size by recompressing pages',             group: 'PDF Tools',   color: '#FF6B35', component: CompressPdf },
   { id: 'pdf-to-images',   label: 'PDF to Images',    icon: 'camera',   desc: 'Export every PDF page as PNG or JPEG images',             group: 'PDF Tools',   color: '#5AC8FA', component: PdfToImages },
-  { id: 'image-convert',   label: 'Image Converter',  icon: 'convert',  desc: 'Convert between PNG, JPEG, WebP + resize images',        group: 'Image Tools', color: '#FF2D55', component: ImageConverter },
-  { id: 'compress-images', label: 'Compress Images',  icon: 'shrink',   desc: 'Shrink image file sizes with adjustable quality',        group: 'Image Tools', color: '#FFCC00', component: CompressImages },
+  { id: 'image-convert',   label: 'Image Converter',  icon: 'convert',      desc: 'Convert between PNG, JPEG, WebP + resize images',        group: 'Image Tools', color: '#FF2D55', component: ImageConverter },
+  { id: 'compress-images', label: 'Compress Images',  icon: 'shrink',       desc: 'Shrink image file sizes with adjustable quality',        group: 'Image Tools', color: '#FFCC00', component: CompressImages },
+  { id: 'resize-export',   label: 'Resize & Export',  icon: 'resizeExport', desc: 'Set exact px or cm dimensions and export as JPEG/PNG/WebP', group: 'Image Tools', color: '#AF52DE', component: ResizeExport },
 ];
 
 /* ─── Top Info Bar ────────────────────────────────────────────────────── */
