@@ -320,24 +320,19 @@ export default function ResizeExport() {
           {/* Width / Height inputs */}
           <div className="re-section">
             <div className="re-section__title">Dimensions</div>
-            <div className="re-dim-row">
-              <DimField
-                label="Width" unit={unit}
-                value={wVal} onChange={handleW}
-                err={wErr}
-              />
-              <button
-                className={`re-lock-btn${lockRatio ? ' re-lock-btn--on' : ''}`}
-                title={lockRatio ? 'Unlock aspect ratio' : 'Lock aspect ratio'}
-                onClick={() => setLockRatio(l => !l)}
-              >
-                {lockRatio ? <LockIcon /> : <UnlockIcon />}
-              </button>
-              <DimField
-                label="Height" unit={unit}
-                value={hVal} onChange={handleH}
-                err={hErr}
-              />
+            <div className="re-dim-grid">
+              <DimField label="Width"  unit={unit} value={wVal} onChange={handleW} err={wErr} />
+              <div className="re-lock-col">
+                <button
+                  className={`re-lock-btn${lockRatio ? ' re-lock-btn--on' : ''}`}
+                  title={lockRatio ? 'Unlock aspect ratio' : 'Lock aspect ratio'}
+                  onClick={() => setLockRatio(l => !l)}
+                >
+                  {lockRatio ? <LockIcon /> : <UnlockIcon />}
+                </button>
+                {lockRatio && <span className="re-lock-label">Linked</span>}
+              </div>
+              <DimField label="Height" unit={unit} value={hVal} onChange={handleH} err={hErr} />
             </div>
             <button className="re-reset-btn" onClick={resetDims}>
               ↺ Reset to original
