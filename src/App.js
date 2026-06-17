@@ -433,7 +433,13 @@ function AppInner() {
       <TopInfoBar darkMode={darkMode} />
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Routes>
-        <Route path="/" element={<HomePage darkMode={darkMode} />} />
+        <Route path="/" element={
+          <div id="scroll-root" className="scroll-root">
+            <HeroSection darkMode={darkMode} />
+            <ExploreSection darkMode={darkMode} />
+            <Footer darkMode={darkMode} />
+          </div>
+        } />
         {TOOLS.map(tool => (
           <Route
             key={tool.id}
