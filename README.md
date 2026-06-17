@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# Image to PDF Converter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Convert JPEG or PNG images to PDF entirely on your device — no uploads, no server, no privacy concerns.
 
-## Available Scripts
+🚀 **Live Demo:** [https://image2pdflite.netlify.app/](https://image2pdflite.netlify.app/)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## About
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Image to PDF Converter is a lightweight, privacy-first web app that lets you combine one or more images into a PDF file. All processing happens locally in your browser using [pdf-lib](https://pdf-lib.js.org/). Your files are never sent to any server.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Drag & drop** images onto the page or use the file picker
+- **Reorder pages** by dragging thumbnails into the desired order
+- **Delete pages** individually before generating
+- **Page size options** — A4, US Letter, or same as image
+- **Page orientation** — Portrait or Landscape
+- **Page margin** — None, Small, or Big
+- **Image compression** — optionally compress images with adjustable quality (0.1 – 1.0)
+- **EXIF orientation** support — JPEG images with rotation metadata are rendered correctly
+- **Mobile friendly** — touch drag-and-drop supported via `mobile-drag-drop`
+- **No data uploaded** — everything runs in the browser
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Supported Formats
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Format | Support |
+|--------|---------|
+| JPEG / JPG | ✅ |
+| PNG | ✅ |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Node.js](https://nodejs.org/) (v16 or above recommended)
+- npm
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+git clone https://github.com/ErrorsAchheHai/image2pdf.git
+cd image2pdf
+npm install
+```
 
-## Learn More
+### Running Locally
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Opens the app at [http://localhost:3000](http://localhost:3000). The page hot-reloads on file changes.
 
-### Code Splitting
+### Building for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm run build
+```
 
-### Analyzing the Bundle Size
+Outputs an optimized production build to the `build/` folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## How to Use
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Open the app and click **Select Images** or drag images into the drop zone.
+2. Reorder the thumbnails by dragging them to the desired position.
+3. Click a thumbnail to select it, then click the trash icon to remove a page.
+4. Click **PDF Options** to configure page size, orientation, margin, and compression.
+5. Click **Generate PDF** — the file downloads automatically as `file.pdf`.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Tech Stack
 
-### Deployment
+| Library | Purpose |
+|---------|---------|
+| [React 18](https://react.dev/) | UI framework |
+| [pdf-lib](https://pdf-lib.js.org/) | In-browser PDF creation |
+| [exif-js](https://github.com/exif-js/exif-js) | Reading JPEG EXIF orientation |
+| [mobile-drag-drop](https://github.com/timruffles/mobile-drag-drop) | Touch drag-and-drop polyfill |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+image2pdf/
+├── public/          # Static assets and index.html
+├── src/
+│   ├── App.js       # Main application component
+│   ├── App.css      # Styles
+│   └── index.js     # React entry point
+├── .env             # Environment config (source maps disabled)
+├── package.json
+└── README.md
+```
+
+---
+
+## Deployment
+
+The app is deployed on Netlify with automatic builds from the main branch.
+
+Live URL: [https://image2pdflite.netlify.app/](https://image2pdflite.netlify.app/)
+
+To deploy your own copy:
+
+```bash
+npm run build
+# then drag the build/ folder into Netlify, or connect your repo for CI/CD
+```
+
+---
+
+## License
+
+This project is open source. Feel free to use, modify, and distribute it.
